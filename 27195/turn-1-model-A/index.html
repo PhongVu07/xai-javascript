@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bitcoin Timeline</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .timeline {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #bitcoinTimeline {
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="timeline">
+    <h2>Bitcoin Historical Timeline</h2>
+    <canvas id="bitcoinTimeline"></canvas>
+</div>
+
+<script>
+    // Data for the timeline
+    const timelineData = {
+        labels: [
+            '1983', '2008', '2009', '2013', '2014', 'Oct 2021', 'Nov 2022', 'Jan 2024', 'Jul 2024'
+        ],
+        datasets: [{
+            label: 'Key Bitcoin Events',
+            data: [
+                {x: '1983', y: 1, r: 5, event: 'eCash Concept'},
+                {x: '2008', y: 2, r: 5, event: 'Bitcoin White Paper'},
+                {x: '2009', y: 3, r: 5, event: 'Bitcoin Creation'},
+                {x: '2013', y: 4, r: 5, event: 'Forbes: Best Investment'},
+                {x: '2014', y: 5, r: 5, event: 'Bloomberg: Worst Investment'},
+                {x: '2021-10', y: 6, r: 5, event: 'First US Bitcoin Futures ETF'},
+                {x: '2022-11', y: 7, r: 5, event: 'FTX Bankruptcy'},
+                {x: '2024-01', y: 8, r: 5, event: 'First Spot Bitcoin ETFs'},
+                {x: '2024-07', y: 9, r: 5, event: 'Spot Ether ETFs Approved'}
+            ],
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1,
+            pointRadius: 5,
+            pointHoverRadius: 10
+        }]
+    };
+
+    // Config for Chart.js
+    const config = {
+        type: 'bubble',
+        data: timelineData,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    display: false
+                },
+                x: {
+                    type: 'time',
+                    time: {
+                        unit: 'year'
+                    }
+                }
+            },
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.dataset.data[context.dataIndex].event;
+                        }
+                    }
+                },
+                legend: {
+                    display: false
+                }
+            }
+        }
+    };
+
+    // Rendering the chart
+    const ctx = document.getElementById('bitcoinTimeline').getContext('2d');
+    new Chart(ctx, config);
+</script>
+
+</body>
+</html>

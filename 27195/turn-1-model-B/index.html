@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Timeline</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #f0f0f0;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: #61D4B3;
+            border: 4px solid #FF9F55;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid #f0f0f0;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #f0f0f0;
+        }
+
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid #f0f0f0;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #f0f0f0 transparent transparent;
+        }
+
+        .right::after {
+            left: -16px;
+        }
+
+        .content {
+            padding: 20px 30px;
+            background-color: #f0f0f0;
+            position: relative;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="timeline">
+        <div class="container left">
+            <div class="content">
+                <h2>1983</h2>
+                <p>David Chaum introduces eCash concept.</p>
+            </div>
+        </div>
+        <div class="container right">
+            <div class="content">
+                <h2>2008</h2>
+                <p>Bitcoin white paper published by Satoshi Nakamoto.</p>
+            </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+                <h2>2009</h2>
+                <p>Bitcoin created.</p>
+            </div>
+        </div>
+        <div class="container right">
+            <div class="content">
+                <h2>2013</h2>
+                <p>Forbes recognizes Bitcoin as the year's best investment.</p>
+            </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+                <h2>2014</h2>
+                <p>Bloomberg calls Bitcoin the year's worst investment.</p>
+            </div>
+        </div>
+        <div class="container right">
+            <div class="content">
+                <h2>Oct 2021</h2>
+                <p>First U.S. Bitcoin futures ETF approved.</p>
+            </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+                <h2>Nov 2022</h2>
+                <p>FTX declares bankruptcy.</p>
+            </div>
+        </div>
+        <div class="container right">
+            <div class="content">
+                <h2>Jan 2024</h2>
+                <p>First spot Bitcoin ETFs approved.</p>
+            </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+                <h2>Jul 2024</h2>
+                <p>Spot Ether ETFs start trading.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Here you could further enhance this visualization with dynamic elements or interactions
+    </script>
+
+</body>
+
+</html>
